@@ -1,0 +1,13 @@
+target/
+.sonar/
+.sonar_lock
+
+# Intellij IDEA
+.idea/
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+/bin/
