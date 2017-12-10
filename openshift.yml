@@ -80,6 +80,10 @@ objects:
         env:
           - name: APP_NAME
             value: ${APP_NAME}
+          - name: GIT_SOURCE_URL
+            value:  ${GIT_SOURCE_URL}
+          - name: GIT_SOURCE_REF
+            value:  ${GIT_SOURCE_REF}
       type: JenkinsPipeline
     triggers:
     - github:
