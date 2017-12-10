@@ -12,7 +12,7 @@ parameters:
   description: The source URL for the application
   displayName: Source URL
   required: true
-  value: https://tkdak@stash.six-group.net/scm/~tkdak/hello.git
+  value: https://github.com/rikcarve/hello-os.git
 - name: GIT_SOURCE_REF
   description: The source Ref for the application
   displayName: Source Ref
@@ -77,6 +77,9 @@ objects:
     strategy:
       jenkinsPipelineStrategy:
         jenkinsfilePath: Jenkinsfile
+        env:
+          - name: APP_NAME
+            value: ${APP_NAME}
       type: JenkinsPipeline
     triggers:
     - github:
@@ -102,13 +105,16 @@ objects:
     source:
       dockerfile: |-
         FROM wildfly
-        COPY hello.war /wildfly/standalone/deployments/hello.war
+        COPY $APP_NAME.war /wildfly/standalone/deployments/$APP_NAME.war
         CMD $STI_SCRIPTS_PATH/run
       binary:
-        asFile: hello.war
+        asFile: ${APP_NAME}.war
       type: Docker
     strategy:
       dockerStrategy:
+        env:
+          - name: APP_NAME
+            value: ${APP_NAME}
         from:
           kind: ImageStreamTag
           name: wildfly:latest
