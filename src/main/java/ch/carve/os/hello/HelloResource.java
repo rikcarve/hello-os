@@ -9,6 +9,6 @@ public class HelloResource {
     @Path("hello")
     @GET
     public String getHello() {
-        return "Hello Openshift";
+        return "Hello Openshift 2";
     }
 }
