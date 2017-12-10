@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: maven-pipeline-hello
+  name: git-jenkinsfile-maven-pipeline
 parameters:
 - name: APP_NAME
   description: The name assigned to all of the application objects defined in this template.
