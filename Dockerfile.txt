@@ -1,0 +1,3 @@
+FROM wildfly
+COPY $APP_NAME.war /wildfly/standalone/deployments/$APP_NAME.war
+CMD $STI_SCRIPTS_PATH/run

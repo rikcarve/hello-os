@@ -107,10 +107,8 @@ objects:
     resources: {}
     runPolicy: Serial
     source:
-      dockerfile: |-
-        FROM wildfly
-        COPY $APP_NAME.war /wildfly/standalone/deployments/$APP_NAME.war
-        CMD $STI_SCRIPTS_PATH/run
+      git:
+        uri: ${GIT_SOURCE_URL}
       binary:
         asFile: ${APP_NAME}.war
       type: Docker
